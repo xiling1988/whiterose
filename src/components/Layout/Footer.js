@@ -105,7 +105,7 @@ export default function Footer() {
           ))}
         </div>
         <p className='mt-10 text-center text-xs leading-5 text-gray-500'>
-          &copy; {year} Melius Consulting, LLC. All rights reserved.
+          &copy; {year} White Rose Design. All rights reserved.
         </p>
         <p className='text-center mt-8 text-xs'>
           Developed with{' '}
