@@ -12,8 +12,9 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: 'FullStack Next Sanity App',
-  description: 'Boilerplate App with Next, Sanity, Tailwind including Auth',
+  title: 'White Rose Design',
+  description:
+    'White Rose Design offers elegant and innovative interior design solutions, transforming spaces with timeless style and personalized touches. Elevate your living or work environment with our expert design services tailored to your unique taste.',
 }
 
 function RootLayout({ children }) {
