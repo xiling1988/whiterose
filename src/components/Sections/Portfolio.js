@@ -1,31 +1,27 @@
+'use client'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 const Portfolio = () => {
   const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(true)
 
   console.log(posts)
 
   useEffect(() => {
     const fetchInstagramFeed = async () => {
-      const token = process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN // Access token from the .env file
+      //   const token = process.env.INSTAGRAM_ACCESS_TOKEN // Access token from the .env file
 
       try {
-        const response = await axios.get(
-          `https://graph.instagram.com/me/media?fields=id,caption,media_url,permalink,timestamp,media_type&access_token=${token}&limit=25`
-        )
+        const response = await axios.get('/api/instagram') // Fetching from your API route
         const imagesOnly = response.data.data.filter(
           (post) => post.media_type === 'IMAGE'
         ) // Filter only image posts
-        setPosts(imagesOnly) // Store the filtered media data in state
+        setPosts(imagesOnly)
       } catch (error) {
         console.error('Error fetching Instagram feed:', error)
-        setLoading(false)
       }
     }
-
     fetchInstagramFeed()
   }, [])
 
@@ -56,12 +52,6 @@ const Portfolio = () => {
       ) : (
         <p>Loading Instagram feed...</p>
       )}
-
-      {/* <style jsx>{`
-      .instagram-feed {
-        padding: 16px;
-      }
-    `}</style> */}
     </div>
   )
 }
