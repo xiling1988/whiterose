@@ -28,7 +28,6 @@ import {
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
-import ThemeContext from '@/context/themeContext'
 
 const navigation = [
   { name: 'Home', href: '/auth' },
@@ -76,7 +75,6 @@ const social = [
 ]
 
 export default function Header() {
-  const { darkTheme, setDarkTheme } = useContext(ThemeContext)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <>
