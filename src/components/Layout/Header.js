@@ -90,9 +90,9 @@ export default function Header() {
             <img
               height={100}
               width={100}
-              className='h-12 w-auto'
-              src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-              alt=''
+              className='h-24 w-auto'
+              src='/logo.png'
+              alt='White Rose Logo'
             />
           </a>
         </div>
