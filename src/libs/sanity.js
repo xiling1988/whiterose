@@ -5,10 +5,12 @@ import imageUrlBuilder from '@sanity/image-url'
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  // projectId: 'avbw49jf',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  // dataset: 'production',
   useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
-  token: process.env.SANITY_STUDIO_TOKEN, // Only if you want to update content with the client
+  apiVersion: '2024-05-03', // use current date (YYYY-MM-DD) to target the latest API version
+  // token: process.env.SANITY_STUDIO_TOKEN, // Only if you want to update content with the client
 })
 
 const builder = imageUrlBuilder(client)
