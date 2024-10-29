@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Buzzwords = () => {
-  return <div>buzzwords</div>
+  return <div>buzzwordssss</div>
 }
 
 export default Buzzwords

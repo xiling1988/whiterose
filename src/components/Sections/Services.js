@@ -72,8 +72,8 @@ const Services = () => {
 
         <div className='mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0'>
           {services.map((service) => (
-            <div key={service.title} className='group block'>
-              <h4 className='text-xl p-1'>{service.title}</h4>
+            <div key={service.title} className='group block mb-4'>
+              <h4 className='md:hidden text-xl p-1'>{service.title}</h4>
               <div
                 aria-hidden='true'
                 className='relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5'

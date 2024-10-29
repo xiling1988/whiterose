@@ -39,5 +39,11 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number',
+      description: 'Controls the order of display for services.',
+    }),
   ],
 })
