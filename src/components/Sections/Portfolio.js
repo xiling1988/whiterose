@@ -1,7 +1,7 @@
-// 'use client'
-// import axios from 'axios'
-// import React, { useEffect, useState } from 'react'
-// import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+'use client'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 const Portfolio = () => {
   const [posts, setPosts] = useState([])
