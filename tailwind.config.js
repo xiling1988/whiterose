@@ -17,6 +17,8 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
+        austen: ['Austen Regular', 'sans-serif'],
+        nexa: ['Nexa Light', 'sans-serif'],
       },
       keyframes: {
         zoomIn: {

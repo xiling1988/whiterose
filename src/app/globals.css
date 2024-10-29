@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Austen Regular';
+  src: url('/fonts/AustenRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa Light';
+  src: url('/fonts/NexaLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

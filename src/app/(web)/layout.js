@@ -20,7 +20,7 @@ export const metadata = {
 function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={poppins.className}>
+      <body className='font-nexa'>
         <main className='font-normal'>
           <div className='absolute w-full top-0 z-50'>
             <HeadRoomWrapper>

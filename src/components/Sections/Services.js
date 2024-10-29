@@ -1,4 +1,6 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { initializeSanityClient } from '@/libs/sanity'
+import Image from 'next/image'
 
 const categories = [
   {
@@ -34,6 +36,29 @@ const categories = [
 ]
 
 const Services = () => {
+  const [services, setServices] = useState([])
+  console.log(services)
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const client = await initializeSanityClient()
+        const data = await client.fetch(`*[_type == "service"]{
+          title,
+          description,
+          "imageUrl": image.asset->url,
+          altText,
+        }`)
+        setServices(data)
+      } catch (error) {
+        console.error('Error fetching services:', error)
+      }
+    }
+
+    fetchServices()
+  }, [])
+
+  console.log(services)
+
   return (
     <div className='bg-white'>
       <div className='mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
@@ -46,27 +71,37 @@ const Services = () => {
         </p>
 
         <div className='mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0'>
-          {categories.map((category) => (
-            <a key={category.name} href={category.href} className='group block'>
+          {services.map((service) => (
+            <div key={service.title} className='group block'>
+              <h4 className='text-xl p-1'>{service.title}</h4>
               <div
                 aria-hidden='true'
-                className='aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75 hover:grayscale hover:blur-md transition-all duration-300'
+                className='relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5'
               >
-                <img
-                  alt={category.imageAlt}
-                  src={category.imageSrc}
-                  className='h-full w-full object-cover object-center '
+                <Image
+                  unoptimized
+                  height={100}
+                  width={100}
+                  alt={service.title}
+                  src={service.imageUrl}
+                  className='h-full w-full object-cover object-center md:group-hover:opacity-75 md:group-hover:grayscale md:group-hover:blur-md transition-all duration-300'
                 />
+                <div className='hidden absolute inset-0  flex-col items-center justify-center p-3 md:group-hover:flex'>
+                  <h4 className='font-bold'>{service.title}</h4>
+                  <p className=' mt-2 text-lg text-center font-bold text-black '>
+                    {service.description}
+                  </p>
+                </div>
+                <p className='md:hidden mt-2 text-lg font-bold text-black '>
+                  {service.description}
+                </p>
               </div>
-              <div className='group-hover:hidden'>
-              <h3 className='mt-4 text-base font-semibold text-gray-900'>
-                {category.name}
-              </h3>
-              <p className='mt-2 text-sm text-gray-500'>
-                {category.description}
-              </p>
+              <div className='md:group-hover:hidden'>
+                <h3 className='hidden md:block mt-4 text-base font-semibold text-gray-900'>
+                  {service.title}
+                </h3>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
