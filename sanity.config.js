@@ -3,29 +3,19 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
 
-async function getSanityConfig() {
-  const res = await fetch('/api/sanityConfig')
-  if (!res.ok) {
-    throw new Error('Failed to fetch Sanity configuration')
-  }
-  return res.json()
-}
+// Sanity Studio configuration only; no data fetching here
+export default defineConfig({
+  name: 'default',
+  title: 'Sanity - White Rose Design',
 
-export async function createSanityConfig() {
-  const sanityConfig = await getSanityConfig()
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
+  basePath: '/studio',
+  useCdn: false,
 
-  return defineConfig({
-    name: 'default',
-    title: 'Sanity - White Rose Design',
+  plugins: [structureTool(), visionTool()],
 
-    projectId: sanityConfig.projectId,
-    dataset: sanityConfig.dataset,
-    basePath: '/studio',
-
-    plugins: [structureTool(), visionTool()],
-
-    schema: {
-      types: schemaTypes,
-    },
-  })
-}
+  schema: {
+    types: schemaTypes,
+  },
+})

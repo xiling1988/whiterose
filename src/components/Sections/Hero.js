@@ -1,12 +1,15 @@
+'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/autoplay'
 import { Autoplay, EffectFade } from 'swiper/modules'
+import MidSection from './MidSection'
+import Image from 'next/image'
 
-const Hero = () => {
+const Hero = ({ images }) => {
   return (
-    <div className='hero-section h-56 md:h-screen'>
+    <div className='hero-section h-70 md:h-screen relative'>
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect='fade'
@@ -14,37 +17,22 @@ const Hero = () => {
         speed={2500} // Adjust the transition speed here
         fadeEffect={{ crossFade: true }} // Enables a smooth crossfade effect
         loop={true}
-        className='h-full w-full'
+        className='h-5/6 w-full'
       >
-        <SwiperSlide>
-          <img
-            src='/img1.jpg'
-            alt='Image 1'
-            className='object-cover w-full h-full animate-zoom-in'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/img3.jpg'
-            alt='Image 3'
-            className='object-cover w-full h-full animate-move-right'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/img2.jpg'
-            alt='Image 2'
-            className='object-cover w-full h-full animate-move-left'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/img4.jpg'
-            alt='Image 4'
-            className='object-cover w-full h-full animate-zoom-in'
-          />
-        </SwiperSlide>
+        {images.map((image) => (
+          <SwiperSlide key={image._id}>
+            <Image
+              width={100}
+              height={100}
+              unoptimized
+              src={image.imageUrl}
+              alt={image.altText}
+              className='object-cover h-full w-full'
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
+      <MidSection />
     </div>
   )
 }

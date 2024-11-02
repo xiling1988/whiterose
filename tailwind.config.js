@@ -10,13 +10,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {},
+      backgroundImage: {
+        canvas: "url('/canvas.jpg')", // Update the path to your image
+      },
       colors: {
         nexusBlue: '#0b4498',
         nexusRed: '#a91cda',
       },
       fontFamily: {
-        poppins: ['var(--font-poppins)'],
+        // poppins: ['var(--font-poppins)'],
         austen: ['Austen Regular', 'sans-serif'],
         nexa: ['Nexa Light', 'sans-serif'],
       },

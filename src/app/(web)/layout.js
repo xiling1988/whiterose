@@ -1,15 +1,15 @@
 import Header from '@/components/Layout/Header'
-import { Poppins } from 'next/font/google'
+// import { Poppins } from 'next/font/google'
 import Footer from '@/components/Layout/Footer'
 import '@/app/globals.css'
 import HeadRoomWrapper from '@/components/HeadRoomWrapper/HeadRoomWrapper'
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-poppins',
-})
+// const poppins = Poppins({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '700', '900'],
+//   style: ['normal', 'italic'],
+//   variable: '--font-poppins',
+// })
 
 export const metadata = {
   title: 'White Rose Design',
@@ -20,8 +20,8 @@ export const metadata = {
 function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className='font-nexa'>
-        <main className='font-normal'>
+      <body>
+        <main className='font-normal font-nexa'>
           <div className='absolute w-full top-0 z-50'>
             <HeadRoomWrapper>
               <Header />

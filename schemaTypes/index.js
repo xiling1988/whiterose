@@ -4,6 +4,7 @@ import post from './post'
 import author from './author'
 import youtube from './youtube/youtube'
 import service from './service'
+import heroImage from './heroImage'
 
 export const schemaTypes = [
   post,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   blockContent,
   youtube,
   service,
+  heroImage,
 ]
