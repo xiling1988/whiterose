@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 const Hero = ({ images }) => {
   return (
-    <div className='hero-section h-70 md:h-screen relative'>
+    <div className='hero-section h-70 w-screen md:h-screen relative'>
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect='fade'
