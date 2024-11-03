@@ -5,28 +5,18 @@ import Portfolio from '@/components/Sections/Portfolio'
 import Contact from '@/components/Sections/Contact'
 import { initializeSanityClient } from '@/libs/sanity'
 
-// export const revalidate = 86400 // Revalidate every hour
+export const revalidate = 86400 // Revalidate every hour
 
-export default async function Home() {
-  const client = await initializeSanityClient()
-  const heroImages = await client.fetch(
-    `*[_type == "heroImage"] | order(orderRank){
-      _id,
-      altText,
-      "imageUrl": image.asset->url
-    }`,
-    { next: { revalidate: 86400 } }
-  )
-
-  // const services = await client.fetch(
-  //   `*[_type == "service"] | order(orderRank){
-  //     title,
-  //     description,
-  //     "imageUrl": image.asset->url,
-  //     altText
-  //   }`
+export default async function Home({ heroImages, services }) {
+  // const client = await initializeSanityClient()
+  // const heroImages = await client.fetch(
+  //   `*[_type == "heroImage"] | order(orderRank){
+  //     _id,
+  //     altText,
+  //     "imageUrl": image.asset->url
+  //   }`,
+  //   { next: { revalidate: 86400 } }
   // )
-
   return (
     <>
       <Hero images={heroImages} />
@@ -35,4 +25,30 @@ export default async function Home() {
       <Contact />
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const client = await initializeSanityClient()
+  const heroImages = await client.fetch(
+    `*[_type == "heroImage"] | order(orderRank){
+      _id,
+      altText,
+      "imageUrl": image.asset->url
+    }`
+  )
+  const services = await client.fetch(
+    `*[_type == "service"] | order(orderRank){
+      title,
+      description,
+      "imageUrl": image.asset->url,
+      altText
+    }`
+  )
+
+  return {
+    props: {
+      heroImages,
+      services,
+    },
+  }
 }
