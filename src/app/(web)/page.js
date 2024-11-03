@@ -5,19 +5,21 @@ import Portfolio from '@/components/Sections/Portfolio'
 import Contact from '@/components/Sections/Contact'
 import { initializeSanityClient } from '@/libs/sanity'
 
-export const revalidate = 86400 // Revalidate every hour
+// export const revalidate = 86400 // Revalidate every hour
 
-export default async function Home() {
+const Home = async () => {
   const client = await initializeSanityClient()
   const heroImages = await client.fetch(
-    `*[_type == "heroImage"] | order(orderRank){
+    `*[_type == "heroImage"]{
       _id,
       altText,
       "imageUrl": image.asset->url
     }`,
-    { next: { revalidate: 86400 } }
+    {
+      next: { revalidate: 86400 },
+    }
   )
-  console.log(heroImages)
+  console.log('Hero Images: ', heroImages)
 
   // const services = await client.fetch(
   //   `*[_type == "service"] | order(orderRank){
@@ -37,3 +39,5 @@ export default async function Home() {
     </>
   )
 }
+
+export default Home
