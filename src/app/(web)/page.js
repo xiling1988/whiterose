@@ -21,19 +21,22 @@ const Home = async () => {
   )
   console.log('Hero Images: ', heroImages)
 
-  // const services = await client.fetch(
-  //   `*[_type == "service"] | order(orderRank){
-  //     title,
-  //     description,
-  //     "imageUrl": image.asset->url,
-  //     altText
-  //   }`
-  // )
+  const services = await client.fetch(
+    `*[_type == "service"]{
+      title,
+      description,
+      "imageUrl": image.asset->url,
+      altText
+    }`,
+    {
+      next: { revalidate: 86400 },
+    }
+  )
 
   return (
     <>
       <Hero images={heroImages} />
-      {/* <Services services={services} /> */}
+      <Services services={services} />
       {/* <Portfolio /> */}
       <Contact />
     </>
