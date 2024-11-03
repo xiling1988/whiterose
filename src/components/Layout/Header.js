@@ -119,7 +119,7 @@ export default function Header() {
                   className='w-52 z-50 origin-top-right rounded-xl border border-white/5 bg-white/90 p-1 text-sm/6 text-gray-400 transition duration-300 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0'
                 >
                   {navigation.map((item) => (
-                    <MenuItem>
+                    <MenuItem key={item.name}>
                       <a
                         href={item.href}
                         className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'
