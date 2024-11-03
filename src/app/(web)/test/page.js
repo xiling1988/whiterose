@@ -1,6 +1,6 @@
 import { initializeSanityClient } from '@/libs/sanity'
 
-export const revalidate = 86400
+// export const revalidate = 86400
 
 const page = async () => {
   const client = await initializeSanityClient()
