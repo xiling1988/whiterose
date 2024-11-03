@@ -21,7 +21,7 @@ const Services = ({ services }) => {
   // }, [])
 
   return (
-    <div id='services' className='bg-canvas bg-cover bg-repeat'>
+    <div id='services' className='bg-canvas bg-fill bg-repeat'>
       <div className='bg-canvas-base h-1 w-full mt-4'></div>
       <div className='mx-auto md:mt-0 max-w-xl px-4 py-10 sm:px-6 sm:py-24 md:max-w-7xl md:px-8'>
         <h2 className='text-4xl font-austen font-bold tracking-tight text-darkCream'>

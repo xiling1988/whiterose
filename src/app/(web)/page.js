@@ -10,7 +10,7 @@ import { initializeSanityClient } from '@/libs/sanity'
 const Home = async () => {
   const client = await initializeSanityClient()
   const heroImages = await client.fetch(
-    `*[_type == "heroImage"]{
+    `*[_type == "heroImage"] | order(orderRank){
       _id,
       altText,
       "imageUrl": image.asset->url
@@ -22,7 +22,7 @@ const Home = async () => {
   console.log('Hero Images: ', heroImages)
 
   const services = await client.fetch(
-    `*[_type == "service"]{
+    `*[_type == "service"] | order(orderRank){
       title,
       description,
       "imageUrl": image.asset->url,

@@ -21,7 +21,7 @@ function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body>
-        <main className='font-normal font-nexa'>
+        <main className='font-normal font-nexa '>
           {/* <div className='absolute w-full top-0 z-50'>
             <HeadRoomWrapper>
             </HeadRoomWrapper>
