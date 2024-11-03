@@ -2,7 +2,7 @@ import React from 'react'
 
 const MidSection = () => {
   return (
-    <div className='flex justify-evenly md:justify-between font-austen text-3xl md:text-6xl md:px-6 pt-3 md:pt-4 bg-transparent'>
+    <div className='flex justify-evenly md:justify-between text-darkCream font-austen pt-4 text-3xl md:text-6xl md:pt-8 md:px-6'>
       <h2>Inpiring</h2>
       <h2>Elegant</h2>
       <h2>Timeless</h2>

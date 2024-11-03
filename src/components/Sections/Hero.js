@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 const Hero = ({ images }) => {
   return (
-    <div className='hero-section h-70 w-screen md:h-screen relative'>
+    <div id='/' className='hero-section h-70 w-screen md:h-screen relative'>
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect='fade'
@@ -17,7 +17,7 @@ const Hero = ({ images }) => {
         speed={2500} // Adjust the transition speed here
         fadeEffect={{ crossFade: true }} // Enables a smooth crossfade effect
         loop={true}
-        className='h-5/6 w-full'
+        className='md:h-5/6 w-full'
       >
         {images.map((image) => (
           <SwiperSlide key={image._id}>
@@ -27,7 +27,7 @@ const Hero = ({ images }) => {
               unoptimized
               src={image.imageUrl}
               alt={image.altText}
-              className='object-cover h-full w-full'
+              className='object-cover object-center h-full w-full'
             />
           </SwiperSlide>
         ))}

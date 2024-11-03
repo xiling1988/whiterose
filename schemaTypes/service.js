@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'orderRank',
+      title: 'Order Rank',
+      type: 'string',
+      hidden: true, // This field is managed by the plugin, so it's hidden
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

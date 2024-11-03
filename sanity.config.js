@@ -1,13 +1,10 @@
 import { defineConfig } from 'sanity'
-import { structureTool } from 'sanity/structure'
+import { structureTool, StructureBuilder } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list'
 import { schemaTypes } from './schemaTypes'
-import * as dotenv from 'dotenv'
 
-// Load environment variables from .env.local
-dotenv.config()
-
-const projectId = process.env.SANITY_PROJECT_ID // Provide default if undefined
+const projectId = process.env.SANITY_PROJECT_ID
 const dataset = process.env.SANITY_DATASET
 
 if (!projectId || !dataset) {
@@ -16,7 +13,6 @@ if (!projectId || !dataset) {
   )
 }
 
-// Sanity Studio configuration only; no data fetching here
 export default defineConfig({
   name: 'default',
   title: 'Sanity - White Rose Design',
@@ -26,7 +22,34 @@ export default defineConfig({
   basePath: '/studio',
   useCdn: false,
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S, context) =>
+        S.list()
+          .title('Content')
+          .items([
+            // Orderable list for Services
+            orderableDocumentListDeskItem({
+              type: 'service',
+              title: 'Services',
+              S,
+              context,
+            }),
+            // Orderable list for Hero Images
+            orderableDocumentListDeskItem({
+              type: 'heroImage',
+              title: 'Hero Images',
+              S,
+              context,
+            }),
+            // Individual items for blog-related schemas
+            S.documentTypeListItem('post').title('Posts'),
+            S.documentTypeListItem('author').title('Authors'),
+            S.documentTypeListItem('category').title('Categories'),
+          ]),
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,

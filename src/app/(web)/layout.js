@@ -22,11 +22,11 @@ function RootLayout({ children }) {
     <html lang='en'>
       <body>
         <main className='font-normal font-nexa'>
-          <div className='absolute w-full top-0 z-50'>
+          {/* <div className='absolute w-full top-0 z-50'>
             <HeadRoomWrapper>
-              <Header />
             </HeadRoomWrapper>
-          </div>
+          </div> */}
+          <Header />
           {children}
           <Footer />
         </main>

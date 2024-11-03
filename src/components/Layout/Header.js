@@ -27,13 +27,12 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import Link from 'next/link'
 
 const navigation = [
-  { name: 'Home', href: '/auth' },
-  { name: 'Services', href: '/about' },
-  { name: 'Portfolio', href: '/services' },
-  { name: 'Contact Us', href: '/contact' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '#services' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Contact Us', href: '#contact' },
 ]
 
 const social = [
@@ -79,14 +78,14 @@ export default function Header() {
   return (
     <>
       {/* <header className='fixed bg-white opacity-80 shadow-lg rounded-xl inset-x-0 top-3 left-2 right-2 z-50'> */}
-
+      {/* DESKTOP */}
       <nav
-        className='mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 bg-transparent opacity-90 rounded-xl inset-x-0 md:mt-9 left-2 right-2 z-50'
+        className=' mx-auto flex max-w-7xl items-center justify-between md:px-8 bg-white opacity-90 rounded-xl inset-x-0'
         aria-label='Global'
       >
-        <div className='flex lg:flex-1'>
+        <div className='flex md:flex-1'>
           <a href='/' className='-m-1.5 p-1.5'>
-            <span className='sr-only'>Your Company</span>
+            <span className='sr-only'>White Rose Design</span>
             <img
               height={100}
               width={100}
@@ -96,54 +95,40 @@ export default function Header() {
             />
           </a>
         </div>
-        <div className='flex lg:hidden'>
+        <div className='flex md:hidden'>
           <button
             type='button'
             className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className='sr-only'>Open main menu</span>
-            <Bars3Icon className='h-6 w-6' aria-hidden='true' />
+            <Bars3Icon className='h-6 w-6 ' aria-hidden='true' />
           </button>
         </div>
-        <div className='hidden lg:flex lg:gap-x-20'>
+        <div className='hidden md:flex md:items-center md:gap-x-20'>
           <>
             {/* PC Hamburger Button */}
-            <div className='text-sm h-16 w-16 font-semibold leading-6 text-gray-900'>
+            <div className='flex items-center text-sm h-16 w-16 font-semibold leading-6 text-gray-900'>
               <Menu>
-                <MenuButton className='inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-gray-100 shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-300 data-[hover]:text-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white'>
+                <MenuButton className='inline-flex gap-2 rounded-md bg-white py-1.5 px-3 text-sm/6 font-semibold text-gray-500 shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-300 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white'>
                   <Bars3Icon className='h-6 w-6' aria-hidden='true' />
                 </MenuButton>
                 <MenuItems
                   transition
                   anchor='bottom end'
-                  className='w-52 z-50 origin-top-right rounded-xl border border-white/5 bg-white/60 p-1 text-sm/6 text-gray-400 transition duration-300 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0'
+                  className='w-52 z-50 origin-top-right rounded-xl border border-white/5 bg-white/90 p-1 text-sm/6 text-gray-400 transition duration-300 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0'
                 >
-                  <MenuItem>
-                    <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
-                      <PencilIcon className='size-4 fill-black/60' />
-                      Home
-                    </button>
-                  </MenuItem>
-                  <MenuItem>
-                    <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
-                      <Square2StackIcon className='size-4 fill-black/60' />
-                      Services
-                    </button>
-                  </MenuItem>
-                  <div className='my-1 h-px bg-white/5' />
-                  <MenuItem>
-                    <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
-                      <ArchiveBoxXMarkIcon className='size-4 fill-black/60' />
-                      Portfolio
-                    </button>
-                  </MenuItem>
-                  <MenuItem>
-                    <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
-                      <TrashIcon className='size-4 fill-black/60' />
-                      Contact Us
-                    </button>
-                  </MenuItem>
+                  {navigation.map((item) => (
+                    <MenuItem>
+                      <a
+                        href={item.href}
+                        className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'
+                      >
+                        <PencilIcon className='size-4 fill-black/60' />
+                        {item.name}
+                      </a>
+                    </MenuItem>
+                  ))}
                   <MenuItem>
                     <div className='group flex w-full justify-evenly items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
                       {social.map((item) => (
@@ -170,7 +155,7 @@ export default function Header() {
       <header>
         <Dialog
           as='div'
-          className='lg:hidden'
+          className='md:hidden'
           open={mobileMenuOpen}
           onClose={setMobileMenuOpen}
         >
@@ -183,13 +168,13 @@ export default function Header() {
                   height={100}
                   width={100}
                   className='h-10 w-auto'
-                  src='/logo.svg'
+                  src='/logo.png'
                   alt=''
                 />
               </a>
               <button
                 type='button'
-                className='-m-2.5 rounded-md p-2.5 text-gray-700'
+                className='-m-2.5 rounded-md p-2.5 text-darkCream'
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className='sr-only'>Close menu</span>
@@ -203,11 +188,8 @@ export default function Header() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-${
-                        item.href === '/rockstars'
-                          ? 'nexusRed underline'
-                          : 'gray-900'
-                      } hover:bg-gray-50`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-darkCream`}
                     >
                       {item.name}
                     </a>

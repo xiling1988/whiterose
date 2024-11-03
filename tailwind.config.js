@@ -11,9 +11,15 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        canvas: "url('/canvas.jpg')", // Update the path to your image
+        canvas: "url('/creamBG.png')", // Update the path to your image
       },
       colors: {
+        darkCream: '#f2d7b4',
+        cream: '#f1e9de',
+        'canvas-base': '#f1e9de', // Base color
+        'canvas-1': '#ccc6bc', // 15% darker
+        'canvas-2': '#a8a39b', // 30% darker
+        'canvas-3': '#84807a', // 45% darker
         nexusBlue: '#0b4498',
         nexusRed: '#a91cda',
       },
