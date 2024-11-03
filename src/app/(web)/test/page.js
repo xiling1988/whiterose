@@ -8,10 +8,11 @@ const page = async () => {
   const minimalData = await client.fetch(`*[_type == "heroImage"]{ _id }`, {
     next: { revalidate: 86400 },
   })
+  const data = await minimalData
 
-  console.log('Minimal Data:', minimalData) // Log for debugging
+  console.log('Minimal Data:', data) // Log for debugging
 
-  return <div>Minimal data fetch with ISR enabled.</div>
+  return <div>hello: {data[0]._id}</div>
 }
 
 export default page

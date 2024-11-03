@@ -8,15 +8,16 @@ import { initializeSanityClient } from '@/libs/sanity'
 export const revalidate = 86400 // Revalidate every hour
 
 export default async function Home() {
-  // const client = await initializeSanityClient()
-  // const heroImages = await client.fetch(
-  //   `*[_type == "heroImage"] | order(orderRank){
-  //     _id,
-  //     altText,
-  //     "imageUrl": image.asset->url
-  //   }`,
-  //   { next: { revalidate: 86400 } }
-  // )
+  const client = await initializeSanityClient()
+  const heroImages = await client.fetch(
+    `*[_type == "heroImage"] | order(orderRank){
+      _id,
+      altText,
+      "imageUrl": image.asset->url
+    }`,
+    { next: { revalidate: 86400 } }
+  )
+  console.log(heroImages)
 
   // const services = await client.fetch(
   //   `*[_type == "service"] | order(orderRank){
@@ -29,7 +30,7 @@ export default async function Home() {
 
   return (
     <>
-      {/* <Hero images={heroImages} /> */}
+      <Hero images={heroImages} />
       {/* <Services services={services} /> */}
       {/* <Portfolio /> */}
       <Contact />
