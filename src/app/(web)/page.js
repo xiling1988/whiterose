@@ -32,7 +32,7 @@ export default async function Home() {
     <>
       <Hero images={heroImages} />
       <Services services={services} />
-      <Portfolio />
+      {/* <Portfolio /> */}
       <Contact />
     </>
   )
