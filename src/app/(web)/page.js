@@ -16,7 +16,7 @@ const Home = async () => {
       "imageUrl": image.asset->url
     }`,
     {
-      next: { revalidate: 86400 },
+      next: { revalidate: 3600 },
     }
   )
   console.log('Hero Images: ', heroImages)
@@ -29,7 +29,7 @@ const Home = async () => {
       altText
     }`,
     {
-      next: { revalidate: 86400 },
+      next: { revalidate: 3600 },
     }
   )
 
