@@ -7,24 +7,24 @@ import { initializeSanityClient } from '@/libs/sanity'
 
 // export const revalidate = 86400 // Revalidate every hour
 
-// export default async function Home() {
-//   const client = await initializeSanityClient()
-//   const heroImages = await client.fetch(
-//     `*[_type == "heroImage"] | order(orderRank){
-//       _id,
-//       altText,
-//       "imageUrl": image.asset->url
-//     }`
-//   )
+export default async function Home() {
+  // const client = await initializeSanityClient()
+  // const heroImages = await client.fetch(
+  //   `*[_type == "heroImage"] | order(orderRank){
+  //     _id,
+  //     altText,
+  //     "imageUrl": image.asset->url
+  //   }`
+  // )
 
-//   const services = await client.fetch(
-//     `*[_type == "service"] | order(orderRank){
-//       title,
-//       description,
-//       "imageUrl": image.asset->url,
-//       altText
-//     }`
-//   )
+  // const services = await client.fetch(
+  //   `*[_type == "service"] | order(orderRank){
+  //     title,
+  //     description,
+  //     "imageUrl": image.asset->url,
+  //     altText
+  //   }`
+  // )
 
   return (
     <>
