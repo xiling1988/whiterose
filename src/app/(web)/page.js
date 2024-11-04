@@ -5,7 +5,6 @@ import Portfolio from '@/components/Sections/Portfolio'
 import Contact from '@/components/Sections/Contact'
 import { initializeSanityClient } from '@/libs/sanity'
 
-
 const Home = async () => {
   const client = await initializeSanityClient()
   const data = await client.fetch(
