@@ -83,13 +83,14 @@ export default function Header() {
         className=' mx-auto flex max-w-7xl items-center justify-between md:px-8 bg-white opacity-90 rounded-xl inset-x-0'
         aria-label='Global'
       >
-        <div className='flex md:flex-1'>
+        <div className='hidden md:flex'></div>
+        <div className='flex px-4 md:px-0 '>
           <a href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>White Rose Design</span>
             <img
               height={100}
               width={100}
-              className='h-24 w-auto'
+              className='h-24 w-auto md:mx-auto'
               src='/logo.png'
               alt='White Rose Logo'
             />

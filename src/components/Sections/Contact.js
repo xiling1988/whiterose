@@ -11,9 +11,9 @@ const Contact = () => {
         />
       </div>
       <div className='pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32'>
-        <div className='px-6 lg:px-8 bg-canvas'>
+        <div className='px-6 lg:px-8 bg-white'>
           <div className='mx-auto max-w-xl lg:mx-0 lg:max-w-lg '>
-            <h2 className='text-3xl font-austen font-bold tracking-tight text-darkCream'>
+            <h2 className='text-3xl font-austen font-bold tracking-tight text-cream'>
               Let's work together
             </h2>
             <p className='mt-2 text-lg leading-8 text-canvas-3'>
@@ -23,7 +23,7 @@ const Contact = () => {
             </p>
             <button
               type='submit'
-              className='rounded-md mt-2 bg-darkCream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
+              className='rounded-md mt-2 bg-cream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
             >
               Send message
             </button>
@@ -113,7 +113,7 @@ const Contact = () => {
               <div className='mt-10 flex justify-end border-t border-canvas-3/10 pt-8'>
                 <button
                   type='submit'
-                  className='rounded-md bg-darkCream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
+                  className='rounded-md bg-cream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
                 >
                   Submit
                 </button>
