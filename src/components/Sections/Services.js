@@ -38,10 +38,10 @@ const Services = () => {
         const client = await initializeSanityClient()
         const data =
           await client.fetch(`*[_type == "service"] | order(orderRank){
+          _id,
           title,
           description,
           "imageUrl": image.asset->url,
-          altText,
         }`)
         setServices(data)
       } catch (error) {
