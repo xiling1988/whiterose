@@ -87,7 +87,8 @@ export default function Header() {
         <div className='flex px-4 md:px-0 '>
           <a href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>White Rose Design</span>
-            <img
+            <Image
+            unoptimized
               height={100}
               width={100}
               className='h-24 w-auto md:mx-auto'
