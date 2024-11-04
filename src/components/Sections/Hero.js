@@ -56,16 +56,28 @@ const Hero = () => {
             </SwiperSlide>
           ))
         ) : (
-          <SwiperSlide>
-            <Image
-              width={100}
-              height={100}
-              unoptimized
-              src='/hero.jpg'
-              alt='Hero Image'
-              className='object-cover object-center h-full w-full'
-            />
-          </SwiperSlide>
+          <>
+            <SwiperSlide>
+              <Image
+                width={100}
+                height={100}
+                unoptimized
+                src='/hero.jpg'
+                alt='Hero Image'
+                className='object-cover object-center h-full w-full'
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={100}
+                height={100}
+                unoptimized
+                src='/hero.jpg'
+                alt='Hero Image'
+                className='object-cover object-center h-full w-full'
+              />
+            </SwiperSlide>
+          </>
         )}
       </Swiper>
       <MidSection />
