@@ -23,15 +23,18 @@ const Contact = () => {
             </p>
             <button
               type='submit'
-              className='rounded-md mt-2 bg-darkCream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+              className='rounded-md mt-2 bg-darkCream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
             >
               Send message
             </button>
+            <p className='mt-10 text-lg leading-8 text-canvas-3'>
+              Or send us your thoughts and queries here:
+            </p>
             <form action='#' method='POST' className='mt-16'>
               <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
                 <div className='sm:col-span-2'>
                   <label
-                    htmlFor='name'
+                    htmlFor='email'
                     className='block text-sm font-semibold leading-6 text-canvas-3'
                   >
                     Name
@@ -40,9 +43,9 @@ const Contact = () => {
                     <input
                       id='name'
                       name='name'
-                      type='name'
+                      type='text'
                       autoComplete='name'
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-darkCream sm:text-sm sm:leading-6'
                     />
                   </div>
                 </div>
@@ -59,7 +62,7 @@ const Contact = () => {
                       name='email'
                       type='email'
                       autoComplete='email'
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-darkCream sm:text-sm sm:leading-6'
                     />
                   </div>
                 </div>
@@ -79,7 +82,7 @@ const Contact = () => {
                       type='tel'
                       autoComplete='tel'
                       aria-describedby='phone-description'
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-darkCream sm:text-sm sm:leading-6'
                     />
                   </div>
                 </div>
@@ -101,7 +104,7 @@ const Contact = () => {
                       name='message'
                       rows={4}
                       aria-describedby='message-description'
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      className='block w-full rounded-md border-0 px-3.5 py-2 text-canvas-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-darkCream sm:text-sm sm:leading-6'
                       defaultValue={''}
                     />
                   </div>
@@ -110,7 +113,7 @@ const Contact = () => {
               <div className='mt-10 flex justify-end border-t border-canvas-3/10 pt-8'>
                 <button
                   type='submit'
-                  className='rounded-md bg-darkCream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  className='rounded-md bg-darkCream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
                 >
                   Submit
                 </button>
