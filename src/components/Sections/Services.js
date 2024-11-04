@@ -36,7 +36,8 @@ const Services = () => {
     const fetchServices = async () => {
       try {
         const client = await initializeSanityClient()
-        const data = await client.fetch(`*[_type == "service"]{
+        const data =
+          await client.fetch(`*[_type == "service"] | order(orderRank){
           title,
           description,
           "imageUrl": image.asset->url,
