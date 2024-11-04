@@ -1,6 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 
 const Contact = () => {
+  const [state, handleSubmit] = useForm('meoqabjz')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    handleSubmit(e)
+    // Submit the form data (e.g., send to an API)
+    console.log(formData)
+    // Reset form fields after submission
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    })
+  }
+
   return (
     <div id='contact' className='relative bg-white'>
       <div className='lg:absolute lg:inset-0 lg:left-1/2'>
@@ -30,7 +62,7 @@ const Contact = () => {
             <p className='mt-10 text-lg leading-8 text-canvas-3'>
               Or send us your thoughts and queries here:
             </p>
-            <form action='#' method='POST' className='mt-16'>
+            <form onSubmit={onSubmit} className='mt-16'>
               <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
                 <div className='sm:col-span-2'>
                   <label
@@ -41,6 +73,9 @@ const Contact = () => {
                   </label>
                   <div className='mt-2.5'>
                     <input
+                      required
+                      onChange={handleChange}
+                      value={formData.name}
                       id='name'
                       name='name'
                       type='text'
@@ -58,6 +93,9 @@ const Contact = () => {
                   </label>
                   <div className='mt-2.5'>
                     <input
+                      required
+                      onChange={handleChange}
+                      value={formData.email}
                       id='email'
                       name='email'
                       type='email'
@@ -77,6 +115,9 @@ const Contact = () => {
                   </div>
                   <div className='mt-2.5'>
                     <input
+                      required
+                      onChange={handleChange}
+                      value={formData.phone}
                       id='phone'
                       name='phone'
                       type='tel'
@@ -100,6 +141,8 @@ const Contact = () => {
                   </div>
                   <div className='mt-2.5'>
                     <textarea
+                      value={formData.message}
+                      onChange={handleChange}
                       id='message'
                       name='message'
                       rows={4}
@@ -111,8 +154,14 @@ const Contact = () => {
                 </div>
               </div>
               <div className='mt-10 flex justify-end border-t border-canvas-3/10 pt-8'>
+                {state.succeeded && (
+                  <p className='text-center'>
+                    Thanks for your message, we'll be in touch soon!
+                  </p>
+                )}
                 <button
                   type='submit'
+                  disabled={state.submitting}
                   className='rounded-md bg-cream px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cream hover:text-canvas-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-darkCream'
                 >
                   Submit

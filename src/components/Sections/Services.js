@@ -55,7 +55,7 @@ const Services = () => {
   return (
     <div id='services' className='bg-white bg-fill bg-repeat'>
       <div className='bg-canvas-base h-1 md:-mt-8 w-full'></div>
-      <div className='mx-auto md:mt-0 max-w-xl px-4 py-10 sm:px-6 sm:py-24 md:max-w-7xl md:px-8'>
+      <div className='mx-auto md:mt-0 max-w-xl px-4 py-10 md:py-16 md:max-w-7xl md:px-8'>
         <h2 className='text-4xl font-austen font-bold tracking-tight text-cream'>
           Our Services
         </h2>
