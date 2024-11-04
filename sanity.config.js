@@ -20,7 +20,7 @@ export default defineConfig({
   projectId,
   dataset,
   basePath: '/studio',
-  useCdn: false,
+  useCdn: true,
 
   plugins: [
     structureTool({

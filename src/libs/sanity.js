@@ -9,7 +9,7 @@ export async function initializeSanityClient() {
       projectId: process.env.SANITY_PROJECT_ID,
       dataset: process.env.SANITY_DATASET,
       apiVersion: '2023-10-29',
-      useCdn: false,
+      useCdn: true,
     })
   }
   return client
