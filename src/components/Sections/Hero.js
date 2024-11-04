@@ -20,7 +20,7 @@ const Hero = () => {
           `*[_type == "heroImage"] | order(orderRank){
             _id,
             altText,
-            "imageUrl": image.asset->url
+            "imageUrl": image.asset->url + '?w=1200&h=800&fit=max&auto=format&dpr=2'
           }`
         )
         setImages(heroImages)
